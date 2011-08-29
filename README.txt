@@ -15,3 +15,5 @@ http://i1131.photobucket.com/albums/m542/boom7777/ProtoLib/screentransition.jpg
 
 
 This project is currently ON HOLD till I finish ProcrastinHater... and maybe till the future of WPF becomes clearer? So I'll just dump this here on GitHub for safe keeping.
+
+Generate database from script and place in C:/.
