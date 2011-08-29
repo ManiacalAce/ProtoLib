@@ -1,0 +1,36 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+>
+	<Style TargetType="{x:Type Button}">
+		<Setter Property="Template" Value="{StaticResource GlassButton}"/>
+		<Setter Property="Foreground" Value="White"/>
+	</Style>
+
+<!--	Form's text box-->
+	<Style x:Key="FormTextBoxStyle" TargetType="TextBox">
+	    <Setter Property="Background" Value="{StaticResource DarkTextBoxBrush}"/>
+	    <Setter Property="BorderBrush" Value="#FF706C6C"/>
+		<Setter Property="Template" Value="{StaticResource RoundedTextBoxTemplate}"/>
+		<Setter Property="Foreground" Value="#FFC5C1C1"/>
+		<Setter Property="FontSize" Value="13"/>
+		<Setter Property="CaretBrush" Value="White"/>
+		
+		<Setter Property="Validation.ErrorTemplate" Value="{StaticResource RoundedTextBoxErrorTemplate}"/>
+	
+		<Style.Triggers>
+			<Trigger Property="Validation.HasError" Value="True">
+				<Setter Property="ToolTip"
+					Value="{Binding RelativeSource={x:Static RelativeSource.Self},
+							Path=(Validation.Errors)[0].ErrorContent}"/>
+			</Trigger>
+		</Style.Triggers>		
+	</Style>
+	
+<!--	Form's headered content control-->
+	<Style x:Key="FormHeaderedControlStyle" TargetType="HeaderedContentControl">
+		<Setter Property="HeaderTemplate" Value="{StaticResource HeaderBarTemplate}"/>
+		<Setter Property="Template" Value="{StaticResource HeaderedHolderTempalte}"/>
+	</Style>
+
+
+</ResourceDictionary>

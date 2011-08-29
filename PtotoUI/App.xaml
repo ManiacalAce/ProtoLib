@@ -1,0 +1,40 @@
+﻿<Application x:Class="ProtoUI.App"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<Application.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="Resources/Brushes.xaml"/>
+				<ResourceDictionary Source="Resources/Templates.xaml"/>	
+				<ResourceDictionary Source="Resources/Styles.xaml"/>
+				<ResourceDictionary Source="Controls/ImageButtonResources.xaml"/>								
+				<ResourceDictionary Source="Resources/MahRes.xaml"/>				
+				<ResourceDictionary Source="Resources/TypedDataTemplates.xaml"/>
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+		
+	
+	</Application.Resources>
+</Application>
+
+	<!-- Don't forget to add: gridMembers.DataContext = ((ObjectQuery)quer).Execute(MergeOption.AppendOnly);
+<Grid x:Name="gridMembers">
+		<ComboBox DisplayMemberPath="AuthorID" ItemsSource="{Binding}"
+				IsSynchronizedWithCurrentItem="True" VerticalAlignment="Top"/>
+		<ListView ItemsSource="{Binding Path=BooksInfo}" x:Name="lstViewContacts"
+					Margin="20,20,20,20">
+			<ListView.View>
+				<GridView AllowsColumnReorder="False">
+					<GridViewColumn DisplayMemberBinding="{Binding Path=BookID}"
+									Header="ID" Width="50"/>
+					<GridViewColumn DisplayMemberBinding="{Binding Path=Title}"
+									Header="Title" Width="80"/>
+					<GridViewColumn DisplayMemberBinding="{Binding Path=Summary}"
+									Header="Summary" Width="80"/>
+				</GridView>			
+			</ListView.View>		
+		</ListView>
+		<Button x:Name="btnA" Click="BtnA_Click" Content="Huzzah!"
+				VerticalAlignment="Bottom"/>
+	</Grid> 
+	-->

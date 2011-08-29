@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Window
+	x:Class="ProtoUI.Views.MainWin" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:ProtoUI"
+
+	Title="ProtoUI"
+	Height="750"
+	Width="1024"
+	WindowStartupLocation="CenterScreen" 
+	Background="White"
+	WindowStyle="None"
+	WindowState="Maximized"
+	>
+	
+	<Window.InputBindings>
+		<KeyBinding Command="{Binding Path=CreateNewWorkspaceCommand}" Gesture="ctrl+T"/>
+
+	</Window.InputBindings>
+	
+	
+	<Grid Background="{StaticResource BWGradient}">
+		<TabControl Style="{StaticResource BorderlessTabControlStyle}"
+					IsSynchronizedWithCurrentItem="True"
+		            ItemsSource="{Binding Path=Workspaces}"
+					ItemTemplate="{StaticResource CloseableTabItemTemplate}"/>
+			
+	
+		<!-- Remember to implement shortcuts bar at bottom. -->
+	</Grid>
+</Window>

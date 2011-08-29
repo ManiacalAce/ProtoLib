@@ -1,0 +1,1276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ProtoLibModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ProtoLibModelStoreContainer">
+          <EntitySet Name="AccountPrefs" EntityType="ProtoLibModel.Store.AccountPrefs" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Authors" EntityType="ProtoLibModel.Store.Authors" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BookInfo" EntityType="ProtoLibModel.Store.BookInfo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BookPhysicalInfo" EntityType="ProtoLibModel.Store.BookPhysicalInfo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BooksByAuthor" EntityType="ProtoLibModel.Store.BooksByAuthor" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BooksByCategory" EntityType="ProtoLibModel.Store.BooksByCategory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BooksBySubject" EntityType="ProtoLibModel.Store.BooksBySubject" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BookStatus" EntityType="ProtoLibModel.Store.BookStatus" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Branches" EntityType="ProtoLibModel.Store.Branches" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Categories" EntityType="ProtoLibModel.Store.Categories" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Cities" EntityType="ProtoLibModel.Store.Cities" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Contacts" EntityType="ProtoLibModel.Store.Contacts" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LibraryBooks" EntityType="ProtoLibModel.Store.LibraryBooks" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Members" EntityType="ProtoLibModel.Store.Members" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Publishers" EntityType="ProtoLibModel.Store.Publishers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="StaffAccounts" EntityType="ProtoLibModel.Store.StaffAccounts" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Subjects" EntityType="ProtoLibModel.Store.Subjects" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Transactions" EntityType="ProtoLibModel.Store.Transactions" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_AccountPrefs_StaffAccounts" Association="ProtoLibModel.Store.FK_AccountPrefs_StaffAccounts">
+            <End Role="StaffAccounts" EntitySet="StaffAccounts" />
+            <End Role="AccountPrefs" EntitySet="AccountPrefs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookInfo_Publishers" Association="ProtoLibModel.Store.FK_BookInfo_Publishers">
+            <End Role="Publishers" EntitySet="Publishers" />
+            <End Role="BookInfo" EntitySet="BookInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookPhysicalInfo_BookInfo1" Association="ProtoLibModel.Store.FK_BookPhysicalInfo_BookInfo1">
+            <End Role="BookInfo" EntitySet="BookInfo" />
+            <End Role="BookPhysicalInfo" EntitySet="BookPhysicalInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BooksByAuthor_Authors" Association="ProtoLibModel.Store.FK_BooksByAuthor_Authors">
+            <End Role="Authors" EntitySet="Authors" />
+            <End Role="BooksByAuthor" EntitySet="BooksByAuthor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BooksByAuthor_BookInfo" Association="ProtoLibModel.Store.FK_BooksByAuthor_BookInfo">
+            <End Role="BookInfo" EntitySet="BookInfo" />
+            <End Role="BooksByAuthor" EntitySet="BooksByAuthor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BooksByCategory_BookInfo" Association="ProtoLibModel.Store.FK_BooksByCategory_BookInfo">
+            <End Role="BookInfo" EntitySet="BookInfo" />
+            <End Role="BooksByCategory" EntitySet="BooksByCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BooksByCategory_Categories" Association="ProtoLibModel.Store.FK_BooksByCategory_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="BooksByCategory" EntitySet="BooksByCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BooksBySubject_BookInfo" Association="ProtoLibModel.Store.FK_BooksBySubject_BookInfo">
+            <End Role="BookInfo" EntitySet="BookInfo" />
+            <End Role="BooksBySubject" EntitySet="BooksBySubject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BooksBySubject_Subjects" Association="ProtoLibModel.Store.FK_BooksBySubject_Subjects">
+            <End Role="Subjects" EntitySet="Subjects" />
+            <End Role="BooksBySubject" EntitySet="BooksBySubject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Branches_Contacts" Association="ProtoLibModel.Store.FK_Branches_Contacts">
+            <End Role="Contacts" EntitySet="Contacts" />
+            <End Role="Branches" EntitySet="Branches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contacts_Cities" Association="ProtoLibModel.Store.FK_Contacts_Cities">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Contacts" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LibraryBooks_BookInfo" Association="ProtoLibModel.Store.FK_LibraryBooks_BookInfo">
+            <End Role="BookInfo" EntitySet="BookInfo" />
+            <End Role="LibraryBooks" EntitySet="LibraryBooks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LibraryBooks_BookStatus" Association="ProtoLibModel.Store.FK_LibraryBooks_BookStatus">
+            <End Role="BookStatus" EntitySet="BookStatus" />
+            <End Role="LibraryBooks" EntitySet="LibraryBooks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LibraryBooks_Branches" Association="ProtoLibModel.Store.FK_LibraryBooks_Branches">
+            <End Role="Branches" EntitySet="Branches" />
+            <End Role="LibraryBooks" EntitySet="LibraryBooks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Members_Contacts" Association="ProtoLibModel.Store.FK_Members_Contacts">
+            <End Role="Contacts" EntitySet="Contacts" />
+            <End Role="Members" EntitySet="Members" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Publishers_Contacts" Association="ProtoLibModel.Store.FK_Publishers_Contacts">
+            <End Role="Contacts" EntitySet="Contacts" />
+            <End Role="Publishers" EntitySet="Publishers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StaffAccounts_Members" Association="ProtoLibModel.Store.FK_StaffAccounts_Members">
+            <End Role="Members" EntitySet="Members" />
+            <End Role="StaffAccounts" EntitySet="StaffAccounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subjects_Subjects" Association="ProtoLibModel.Store.FK_Subjects_Subjects">
+            <End Role="Subjects" EntitySet="Subjects" />
+            <End Role="Subjects1" EntitySet="Subjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transactions_LibraryBooks" Association="ProtoLibModel.Store.FK_Transactions_LibraryBooks">
+            <End Role="LibraryBooks" EntitySet="LibraryBooks" />
+            <End Role="Transactions" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transactions_Members" Association="ProtoLibModel.Store.FK_Transactions_Members">
+            <End Role="Members" EntitySet="Members" />
+            <End Role="Transactions" EntitySet="Transactions" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AccountPrefs">
+          <Key>
+            <PropertyRef Name="AccountID" />
+          </Key>
+          <Property Name="AccountID" Type="int" Nullable="false" />
+          <Property Name="CacheSize" Type="int" Nullable="false" />
+          <Property Name="SearchResultsPageSize" Type="int" Nullable="false" />
+          <Property Name="FullScreenMode" Type="varchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Authors">
+          <Key>
+            <PropertyRef Name="AuthorID" />
+          </Key>
+          <Property Name="AuthorID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="MiddleName" Type="varchar" MaxLength="200" />
+          <Property Name="LastName" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="DateOfBirth" Type="date" />
+          <Property Name="DateOfDeath" Type="date" />
+          <Property Name="Nationality" Type="varchar" MaxLength="100" />
+          <Property Name="AuthorImage" Type="varchar" MaxLength="600" />
+        </EntityType>
+        <EntityType Name="BookInfo">
+          <Key>
+            <PropertyRef Name="BookInfoID" />
+          </Key>
+          <Property Name="BookInfoID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ISBN13" Type="varchar" MaxLength="15" />
+          <Property Name="ISBN10" Type="varchar" MaxLength="15" />
+          <Property Name="Title" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="TitleLong" Type="varchar" MaxLength="1000" />
+          <Property Name="PublisherID" Type="int" />
+          <Property Name="EditionNumber" Type="int" />
+          <Property Name="EditionName" Type="varchar" MaxLength="300" />
+          <Property Name="Printing" Type="int" />
+          <Property Name="Language" Type="varchar" MaxLength="200" />
+          <Property Name="CoverImage" Type="varchar" MaxLength="300" />
+          <Property Name="DatePublished" Type="date" />
+          <Property Name="AmazonLink" Type="varchar" MaxLength="1000" />
+          <Property Name="Summary" Type="varchar(max)" />
+          <Property Name="Notes" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="BookPhysicalInfo">
+          <Key>
+            <PropertyRef Name="BookInfoID" />
+          </Key>
+          <Property Name="BookInfoID" Type="int" Nullable="false" />
+          <Property Name="Pages" Type="int" />
+          <Property Name="Height" Type="float" />
+          <Property Name="Width" Type="float" />
+          <Property Name="Thickness" Type="float" />
+          <Property Name="Weight" Type="float" />
+        </EntityType>
+        <EntityType Name="BooksByAuthor">
+          <Key>
+            <PropertyRef Name="BookInfoID" />
+            <PropertyRef Name="AuthorID" />
+          </Key>
+          <Property Name="BookInfoID" Type="int" Nullable="false" />
+          <Property Name="AuthorID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BooksByCategory">
+          <Key>
+            <PropertyRef Name="BookInfoID" />
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="BookInfoID" Type="int" Nullable="false" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BooksBySubject">
+          <Key>
+            <PropertyRef Name="BookInfoID" />
+            <PropertyRef Name="SubjectID" />
+          </Key>
+          <Property Name="BookInfoID" Type="int" Nullable="false" />
+          <Property Name="SubjectID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BookStatus">
+          <Key>
+            <PropertyRef Name="StatusID" />
+          </Key>
+          <Property Name="StatusID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Branches">
+          <Key>
+            <PropertyRef Name="BranchID" />
+          </Key>
+          <Property Name="BranchID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="ContactID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Cities">
+          <Key>
+            <PropertyRef Name="CityID" />
+          </Key>
+          <Property Name="CityID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="City" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="StateOrProvince" Type="varchar" MaxLength="200" />
+          <Property Name="Country" Type="varchar" Nullable="false" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Contacts">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AddLine1" Type="varchar" MaxLength="500" />
+          <Property Name="AddLine2" Type="varchar" MaxLength="500" />
+          <Property Name="AddLine3" Type="varchar" MaxLength="500" />
+          <Property Name="CityID" Type="int" />
+          <Property Name="Pin" Type="varchar" MaxLength="20" />
+          <Property Name="Phone1" Type="varchar" MaxLength="50" />
+          <Property Name="Phone2" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Website" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="LibraryBooks">
+          <Key>
+            <PropertyRef Name="BookID" />
+          </Key>
+          <Property Name="BookID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BookInfoID" Type="int" Nullable="false" />
+          <Property Name="StatusID" Type="int" Nullable="false" />
+          <Property Name="Price" Type="int" />
+          <Property Name="ObtainedFrom" Type="varchar" MaxLength="200" />
+          <Property Name="BranchID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Members">
+          <Key>
+            <PropertyRef Name="MemberID" />
+          </Key>
+          <Property Name="MemberID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ContactID" Type="int" />
+          <Property Name="FirstName" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="MiddleName" Type="varchar" MaxLength="200" />
+          <Property Name="LastName" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="DateOfBirth" Type="date" />
+          <Property Name="Gender" Type="varchar" MaxLength="20" />
+          <Property Name="JoinDate" Type="date" Nullable="false" />
+          <Property Name="Portrait" Type="varchar" MaxLength="600" />
+        </EntityType>
+        <EntityType Name="Publishers">
+          <Key>
+            <PropertyRef Name="PublisherID" />
+          </Key>
+          <Property Name="PublisherID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="ContactID" Type="int" Nullable="false" />
+          <Property Name="PublisherLogo" Type="varchar" MaxLength="600" />
+        </EntityType>
+        <EntityType Name="StaffAccounts">
+          <Key>
+            <PropertyRef Name="AccountID" />
+          </Key>
+          <Property Name="AccountID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="Password" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="MemberID" Type="int" Nullable="false" />
+          <Property Name="ClearanceLevel" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Subjects">
+          <Key>
+            <PropertyRef Name="SubjectID" />
+          </Key>
+          <Property Name="SubjectID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="300" />
+          <Property Name="ParentSubjectID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Transactions">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+          </Key>
+          <Property Name="TransactionID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BookID" Type="int" Nullable="false" />
+          <Property Name="MemberID" Type="int" Nullable="false" />
+          <Property Name="CheckedOutOn" Type="datetime" Nullable="false" />
+          <Property Name="ReturnedOn" Type="datetime" />
+          <Property Name="Fine" Type="float" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AccountPrefs_StaffAccounts">
+          <End Role="StaffAccounts" Type="ProtoLibModel.Store.StaffAccounts" Multiplicity="1" />
+          <End Role="AccountPrefs" Type="ProtoLibModel.Store.AccountPrefs" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="StaffAccounts">
+              <PropertyRef Name="AccountID" />
+            </Principal>
+            <Dependent Role="AccountPrefs">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookInfo_Publishers">
+          <End Role="Publishers" Type="ProtoLibModel.Store.Publishers" Multiplicity="0..1" />
+          <End Role="BookInfo" Type="ProtoLibModel.Store.BookInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publishers">
+              <PropertyRef Name="PublisherID" />
+            </Principal>
+            <Dependent Role="BookInfo">
+              <PropertyRef Name="PublisherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookPhysicalInfo_BookInfo1">
+          <End Role="BookInfo" Type="ProtoLibModel.Store.BookInfo" Multiplicity="1" />
+          <End Role="BookPhysicalInfo" Type="ProtoLibModel.Store.BookPhysicalInfo" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="BookInfo">
+              <PropertyRef Name="BookInfoID" />
+            </Principal>
+            <Dependent Role="BookPhysicalInfo">
+              <PropertyRef Name="BookInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BooksByAuthor_Authors">
+          <End Role="Authors" Type="ProtoLibModel.Store.Authors" Multiplicity="1" />
+          <End Role="BooksByAuthor" Type="ProtoLibModel.Store.BooksByAuthor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Authors">
+              <PropertyRef Name="AuthorID" />
+            </Principal>
+            <Dependent Role="BooksByAuthor">
+              <PropertyRef Name="AuthorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BooksByAuthor_BookInfo">
+          <End Role="BookInfo" Type="ProtoLibModel.Store.BookInfo" Multiplicity="1" />
+          <End Role="BooksByAuthor" Type="ProtoLibModel.Store.BooksByAuthor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BookInfo">
+              <PropertyRef Name="BookInfoID" />
+            </Principal>
+            <Dependent Role="BooksByAuthor">
+              <PropertyRef Name="BookInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BooksByCategory_BookInfo">
+          <End Role="BookInfo" Type="ProtoLibModel.Store.BookInfo" Multiplicity="1" />
+          <End Role="BooksByCategory" Type="ProtoLibModel.Store.BooksByCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BookInfo">
+              <PropertyRef Name="BookInfoID" />
+            </Principal>
+            <Dependent Role="BooksByCategory">
+              <PropertyRef Name="BookInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BooksByCategory_Categories">
+          <End Role="Categories" Type="ProtoLibModel.Store.Categories" Multiplicity="1" />
+          <End Role="BooksByCategory" Type="ProtoLibModel.Store.BooksByCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="BooksByCategory">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BooksBySubject_BookInfo">
+          <End Role="BookInfo" Type="ProtoLibModel.Store.BookInfo" Multiplicity="1" />
+          <End Role="BooksBySubject" Type="ProtoLibModel.Store.BooksBySubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BookInfo">
+              <PropertyRef Name="BookInfoID" />
+            </Principal>
+            <Dependent Role="BooksBySubject">
+              <PropertyRef Name="BookInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BooksBySubject_Subjects">
+          <End Role="Subjects" Type="ProtoLibModel.Store.Subjects" Multiplicity="1" />
+          <End Role="BooksBySubject" Type="ProtoLibModel.Store.BooksBySubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subjects">
+              <PropertyRef Name="SubjectID" />
+            </Principal>
+            <Dependent Role="BooksBySubject">
+              <PropertyRef Name="SubjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Branches_Contacts">
+          <End Role="Contacts" Type="ProtoLibModel.Store.Contacts" Multiplicity="1" />
+          <End Role="Branches" Type="ProtoLibModel.Store.Branches" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contacts">
+              <PropertyRef Name="ContactID" />
+            </Principal>
+            <Dependent Role="Branches">
+              <PropertyRef Name="ContactID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contacts_Cities">
+          <End Role="Cities" Type="ProtoLibModel.Store.Cities" Multiplicity="0..1" />
+          <End Role="Contacts" Type="ProtoLibModel.Store.Contacts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="Contacts">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LibraryBooks_BookInfo">
+          <End Role="BookInfo" Type="ProtoLibModel.Store.BookInfo" Multiplicity="1" />
+          <End Role="LibraryBooks" Type="ProtoLibModel.Store.LibraryBooks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BookInfo">
+              <PropertyRef Name="BookInfoID" />
+            </Principal>
+            <Dependent Role="LibraryBooks">
+              <PropertyRef Name="BookInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LibraryBooks_BookStatus">
+          <End Role="BookStatus" Type="ProtoLibModel.Store.BookStatus" Multiplicity="1" />
+          <End Role="LibraryBooks" Type="ProtoLibModel.Store.LibraryBooks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BookStatus">
+              <PropertyRef Name="StatusID" />
+            </Principal>
+            <Dependent Role="LibraryBooks">
+              <PropertyRef Name="StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LibraryBooks_Branches">
+          <End Role="Branches" Type="ProtoLibModel.Store.Branches" Multiplicity="1" />
+          <End Role="LibraryBooks" Type="ProtoLibModel.Store.LibraryBooks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branches">
+              <PropertyRef Name="BranchID" />
+            </Principal>
+            <Dependent Role="LibraryBooks">
+              <PropertyRef Name="BranchID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Members_Contacts">
+          <End Role="Contacts" Type="ProtoLibModel.Store.Contacts" Multiplicity="0..1" />
+          <End Role="Members" Type="ProtoLibModel.Store.Members" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contacts">
+              <PropertyRef Name="ContactID" />
+            </Principal>
+            <Dependent Role="Members">
+              <PropertyRef Name="ContactID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Publishers_Contacts">
+          <End Role="Contacts" Type="ProtoLibModel.Store.Contacts" Multiplicity="1" />
+          <End Role="Publishers" Type="ProtoLibModel.Store.Publishers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contacts">
+              <PropertyRef Name="ContactID" />
+            </Principal>
+            <Dependent Role="Publishers">
+              <PropertyRef Name="ContactID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StaffAccounts_Members">
+          <End Role="Members" Type="ProtoLibModel.Store.Members" Multiplicity="1" />
+          <End Role="StaffAccounts" Type="ProtoLibModel.Store.StaffAccounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="StaffAccounts">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subjects_Subjects">
+          <End Role="Subjects" Type="ProtoLibModel.Store.Subjects" Multiplicity="1" />
+          <End Role="Subjects1" Type="ProtoLibModel.Store.Subjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subjects">
+              <PropertyRef Name="SubjectID" />
+            </Principal>
+            <Dependent Role="Subjects1">
+              <PropertyRef Name="ParentSubjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transactions_LibraryBooks">
+          <End Role="LibraryBooks" Type="ProtoLibModel.Store.LibraryBooks" Multiplicity="1" />
+          <End Role="Transactions" Type="ProtoLibModel.Store.Transactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LibraryBooks">
+              <PropertyRef Name="BookID" />
+            </Principal>
+            <Dependent Role="Transactions">
+              <PropertyRef Name="BookID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transactions_Members">
+          <End Role="Members" Type="ProtoLibModel.Store.Members" Multiplicity="1" />
+          <End Role="Transactions" Type="ProtoLibModel.Store.Transactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="Transactions">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProtoLibModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="ProtoLibEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Authors" EntityType="ProtoLibModel.Author" />
+          <EntitySet Name="BookDetailsSet" EntityType="ProtoLibModel.BookDetails" />
+          <EntitySet Name="BookDimensions" EntityType="ProtoLibModel.BookDimensions" />
+          <EntitySet Name="BookStatus1" EntityType="ProtoLibModel.BookStatus" />
+          <EntitySet Name="Branches" EntityType="ProtoLibModel.Branch" />
+          <EntitySet Name="Categories" EntityType="ProtoLibModel.Category" />
+          <EntitySet Name="Cities" EntityType="ProtoLibModel.City" />
+          <EntitySet Name="Contacts" EntityType="ProtoLibModel.Contact" />
+          <EntitySet Name="LibraryBooks" EntityType="ProtoLibModel.LibraryBook" />
+          <EntitySet Name="Members" EntityType="ProtoLibModel.Member" />
+          <EntitySet Name="Publishers" EntityType="ProtoLibModel.Publisher" />
+          <EntitySet Name="StaffAccounts" EntityType="ProtoLibModel.StaffAccount" />
+          <EntitySet Name="Subjects" EntityType="ProtoLibModel.Subject" />
+          <EntitySet Name="Transactions" EntityType="ProtoLibModel.Transaction" />
+          <AssociationSet Name="FK_BookInfo_Publishers" Association="ProtoLibModel.FK_BookInfo_Publishers">
+            <End Role="Publishers" EntitySet="Publishers" />
+            <End Role="BookInfo" EntitySet="BookDetailsSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookPhysicalInfo_BookInfo1" Association="ProtoLibModel.FK_BookPhysicalInfo_BookInfo1">
+            <End Role="BookInfo" EntitySet="BookDetailsSet" />
+            <End Role="BookPhysicalInfo" EntitySet="BookDimensions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LibraryBooks_BookInfo" Association="ProtoLibModel.FK_LibraryBooks_BookInfo">
+            <End Role="BookInfo" EntitySet="BookDetailsSet" />
+            <End Role="LibraryBooks" EntitySet="LibraryBooks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LibraryBooks_BookStatus" Association="ProtoLibModel.FK_LibraryBooks_BookStatus">
+            <End Role="BookStatus" EntitySet="BookStatus1" />
+            <End Role="LibraryBooks" EntitySet="LibraryBooks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Branches_Contacts" Association="ProtoLibModel.FK_Branches_Contacts">
+            <End Role="Contacts" EntitySet="Contacts" />
+            <End Role="Branches" EntitySet="Branches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LibraryBooks_Branches" Association="ProtoLibModel.FK_LibraryBooks_Branches">
+            <End Role="Branches" EntitySet="Branches" />
+            <End Role="LibraryBooks" EntitySet="LibraryBooks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contacts_Cities" Association="ProtoLibModel.FK_Contacts_Cities">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Contacts" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Members_Contacts" Association="ProtoLibModel.FK_Members_Contacts">
+            <End Role="Contacts" EntitySet="Contacts" />
+            <End Role="Members" EntitySet="Members" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Publishers_Contacts" Association="ProtoLibModel.FK_Publishers_Contacts">
+            <End Role="Contacts" EntitySet="Contacts" />
+            <End Role="Publishers" EntitySet="Publishers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transactions_LibraryBooks" Association="ProtoLibModel.FK_Transactions_LibraryBooks">
+            <End Role="LibraryBooks" EntitySet="LibraryBooks" />
+            <End Role="Transactions" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StaffAccounts_Members" Association="ProtoLibModel.FK_StaffAccounts_Members">
+            <End Role="Members" EntitySet="Members" />
+            <End Role="StaffAccounts" EntitySet="StaffAccounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transactions_Members" Association="ProtoLibModel.FK_Transactions_Members">
+            <End Role="Members" EntitySet="Members" />
+            <End Role="Transactions" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subjects_Subjects" Association="ProtoLibModel.FK_Subjects_Subjects">
+            <End Role="Subjects" EntitySet="Subjects" />
+            <End Role="Subjects1" EntitySet="Subjects" />
+          </AssociationSet>
+          <AssociationSet Name="BooksByAuthor" Association="ProtoLibModel.BooksByAuthor">
+            <End Role="Authors" EntitySet="Authors" />
+            <End Role="BookInfo" EntitySet="BookDetailsSet" />
+          </AssociationSet>
+          <AssociationSet Name="BooksByCategory" Association="ProtoLibModel.BooksByCategory">
+            <End Role="BookInfo" EntitySet="BookDetailsSet" />
+            <End Role="Categories" EntitySet="Categories" />
+          </AssociationSet>
+          <AssociationSet Name="BooksBySubject" Association="ProtoLibModel.BooksBySubject">
+            <End Role="BookInfo" EntitySet="BookDetailsSet" />
+            <End Role="Subjects" EntitySet="Subjects" />
+          </AssociationSet>
+          <EntitySet Name="AccountPrefsSet" EntityType="ProtoLibModel.AccountPrefs" />
+          <AssociationSet Name="FK_AccountPrefs_StaffAccounts" Association="ProtoLibModel.FK_AccountPrefs_StaffAccounts">
+            <End Role="StaffAccount" EntitySet="StaffAccounts" />
+            <End Role="AccountPrefs" EntitySet="AccountPrefsSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="AuthorID" />
+          </Key>
+          <Property Name="AuthorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="DateOfBirth" Type="DateTime" />
+          <Property Name="DateOfDeath" Type="DateTime" />
+          <Property Name="Nationality" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="BookDetailsSet" Relationship="ProtoLibModel.BooksByAuthor" FromRole="Authors" ToRole="BookInfo" />
+          <Property Type="String" Name="AuthorImage" MaxLength="600" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="BookDetails">
+          <Key>
+            <PropertyRef Name="BookDetailsID" />
+          </Key>
+          <Property Name="BookDetailsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ISBN13" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="ISBN10" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="TitleLong" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
+          <Property Name="PublisherID" Type="Int32" Nullable="false" />
+          <Property Name="EditionNumber" Type="Int32" />
+          <Property Name="EditionName" Type="String" MaxLength="300" Unicode="false" FixedLength="false" />
+          <Property Name="Printing" Type="Int32" />
+          <Property Name="Language" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="CoverImage" Type="String" MaxLength="300" Unicode="false" FixedLength="false" />
+          <Property Name="DatePublished" Type="DateTime" />
+          <Property Name="AmazonLink" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
+          <Property Name="Summary" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Notes" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Publisher" Relationship="ProtoLibModel.FK_BookInfo_Publishers" FromRole="BookInfo" ToRole="Publishers" />
+          <NavigationProperty Name="BookDimensions" Relationship="ProtoLibModel.FK_BookPhysicalInfo_BookInfo1" FromRole="BookInfo" ToRole="BookPhysicalInfo" />
+          <NavigationProperty Name="LibraryBooks" Relationship="ProtoLibModel.FK_LibraryBooks_BookInfo" FromRole="BookInfo" ToRole="LibraryBooks" />
+          <NavigationProperty Name="Authors" Relationship="ProtoLibModel.BooksByAuthor" FromRole="BookInfo" ToRole="Authors" />
+          <NavigationProperty Name="Categories" Relationship="ProtoLibModel.BooksByCategory" FromRole="BookInfo" ToRole="Categories" />
+          <NavigationProperty Name="Subjects" Relationship="ProtoLibModel.BooksBySubject" FromRole="BookInfo" ToRole="Subjects" />
+        </EntityType>
+        <EntityType Name="BookDimensions">
+          <Key>
+            <PropertyRef Name="BookDetailsID" />
+          </Key>
+          <Property Name="BookDetailsID" Type="Int32" Nullable="false" />
+          <Property Name="Pages" Type="Int32" />
+          <Property Name="Height" Type="Double" />
+          <Property Name="Width" Type="Double" />
+          <Property Name="Thickness" Type="Double" />
+          <Property Name="Weight" Type="Double" />
+          <NavigationProperty Name="BookDetails" Relationship="ProtoLibModel.FK_BookPhysicalInfo_BookInfo1" FromRole="BookPhysicalInfo" ToRole="BookInfo" />
+        </EntityType>
+        <EntityType Name="BookStatus">
+          <Key>
+            <PropertyRef Name="StatusID" />
+          </Key>
+          <Property Name="StatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="LibraryBooks" Relationship="ProtoLibModel.FK_LibraryBooks_BookStatus" FromRole="BookStatus" ToRole="LibraryBooks" />
+        </EntityType>
+        <EntityType Name="Branch">
+          <Key>
+            <PropertyRef Name="BranchID" />
+          </Key>
+          <Property Name="BranchID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="ContactID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Contact" Relationship="ProtoLibModel.FK_Branches_Contacts" FromRole="Branches" ToRole="Contacts" />
+          <NavigationProperty Name="LibraryBooks" Relationship="ProtoLibModel.FK_LibraryBooks_Branches" FromRole="Branches" ToRole="LibraryBooks" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="BookDetailsSet" Relationship="ProtoLibModel.BooksByCategory" FromRole="Categories" ToRole="BookInfo" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="CityID" />
+          </Key>
+          <Property Name="CityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="City1" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="StateOrProvince" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="Country" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Contacts" Relationship="ProtoLibModel.FK_Contacts_Cities" FromRole="Cities" ToRole="Contacts" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AddLine1" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="AddLine2" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="AddLine3" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="CityID" Type="Int32" />
+          <Property Name="Pin" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Phone1" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Phone2" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Website" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Branches" Relationship="ProtoLibModel.FK_Branches_Contacts" FromRole="Contacts" ToRole="Branches" />
+          <NavigationProperty Name="City" Relationship="ProtoLibModel.FK_Contacts_Cities" FromRole="Contacts" ToRole="Cities" />
+          <NavigationProperty Name="Members" Relationship="ProtoLibModel.FK_Members_Contacts" FromRole="Contacts" ToRole="Members" />
+          <NavigationProperty Name="Publishers" Relationship="ProtoLibModel.FK_Publishers_Contacts" FromRole="Contacts" ToRole="Publishers" />
+        </EntityType>
+        <EntityType Name="LibraryBook">
+          <Key>
+            <PropertyRef Name="BookID" />
+          </Key>
+          <Property Name="BookID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BookInfoID" Type="Int32" Nullable="false" />
+          <Property Name="StatusID" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Int32" />
+          <Property Name="ObtainedFrom" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="BranchID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BookDetails" Relationship="ProtoLibModel.FK_LibraryBooks_BookInfo" FromRole="LibraryBooks" ToRole="BookInfo" />
+          <NavigationProperty Name="BookStatus" Relationship="ProtoLibModel.FK_LibraryBooks_BookStatus" FromRole="LibraryBooks" ToRole="BookStatus" />
+          <NavigationProperty Name="Branch" Relationship="ProtoLibModel.FK_LibraryBooks_Branches" FromRole="LibraryBooks" ToRole="Branches" />
+          <NavigationProperty Name="Transactions" Relationship="ProtoLibModel.FK_Transactions_LibraryBooks" FromRole="LibraryBooks" ToRole="Transactions" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="MemberID" />
+          </Key>
+          <Property Name="MemberID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContactID" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="DateOfBirth" Type="DateTime" />
+          <Property Name="Gender" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="JoinDate" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Contact" Relationship="ProtoLibModel.FK_Members_Contacts" FromRole="Members" ToRole="Contacts" />
+          <NavigationProperty Name="StaffAccounts" Relationship="ProtoLibModel.FK_StaffAccounts_Members" FromRole="Members" ToRole="StaffAccounts" />
+          <NavigationProperty Name="Transactions" Relationship="ProtoLibModel.FK_Transactions_Members" FromRole="Members" ToRole="Transactions" />
+          <Property Type="String" Name="Portrait" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Publisher">
+          <Key>
+            <PropertyRef Name="PublisherID" />
+          </Key>
+          <Property Name="PublisherID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="ContactID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BookDetailsSet" Relationship="ProtoLibModel.FK_BookInfo_Publishers" FromRole="Publishers" ToRole="BookInfo" />
+          <NavigationProperty Name="Contact" Relationship="ProtoLibModel.FK_Publishers_Contacts" FromRole="Publishers" ToRole="Contacts" />
+          <Property Type="String" Name="PublisherLogo" MaxLength="600" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="StaffAccount">
+          <Key>
+            <PropertyRef Name="AccountID" />
+          </Key>
+          <Property Name="AccountID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="MemberID" Type="Int32" Nullable="false" />
+          <Property Name="ClearanceLevel" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Member" Relationship="ProtoLibModel.FK_StaffAccounts_Members" FromRole="StaffAccounts" ToRole="Members" />
+          <NavigationProperty Name="AccountPrefs" Relationship="ProtoLibModel.FK_AccountPrefs_StaffAccounts" FromRole="StaffAccount" ToRole="AccountPrefs" />
+        </EntityType>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="SubjectID" />
+          </Key>
+          <Property Name="SubjectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="300" Unicode="false" FixedLength="false" />
+          <Property Name="ParentSubjectID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SubjectChildren" Relationship="ProtoLibModel.FK_Subjects_Subjects" FromRole="Subjects" ToRole="Subjects1" />
+          <NavigationProperty Name="ParentSubject" Relationship="ProtoLibModel.FK_Subjects_Subjects" FromRole="Subjects1" ToRole="Subjects" />
+          <NavigationProperty Name="BookDetailsSet" Relationship="ProtoLibModel.BooksBySubject" FromRole="Subjects" ToRole="BookInfo" />
+        </EntityType>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+          </Key>
+          <Property Name="TransactionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BookID" Type="Int32" Nullable="false" />
+          <Property Name="MemberID" Type="Int32" Nullable="false" />
+          <Property Name="CheckedOutOn" Type="DateTime" Nullable="false" />
+          <Property Name="ReturnedOn" Type="DateTime" />
+          <Property Name="Fine" Type="Double" Nullable="false" />
+          <NavigationProperty Name="LibraryBook" Relationship="ProtoLibModel.FK_Transactions_LibraryBooks" FromRole="Transactions" ToRole="LibraryBooks" />
+          <NavigationProperty Name="Member" Relationship="ProtoLibModel.FK_Transactions_Members" FromRole="Transactions" ToRole="Members" />
+        </EntityType>
+        <Association Name="FK_BookInfo_Publishers">
+          <End Role="Publishers" Type="ProtoLibModel.Publisher" Multiplicity="1" />
+          <End Role="BookInfo" Type="ProtoLibModel.BookDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publishers">
+              <PropertyRef Name="PublisherID" />
+            </Principal>
+            <Dependent Role="BookInfo">
+              <PropertyRef Name="PublisherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookPhysicalInfo_BookInfo1">
+          <End Role="BookInfo" Type="ProtoLibModel.BookDetails" Multiplicity="1" />
+          <End Role="BookPhysicalInfo" Type="ProtoLibModel.BookDimensions" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="BookInfo">
+              <PropertyRef Name="BookDetailsID" />
+            </Principal>
+            <Dependent Role="BookPhysicalInfo">
+              <PropertyRef Name="BookDetailsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LibraryBooks_BookInfo">
+          <End Role="BookInfo" Type="ProtoLibModel.BookDetails" Multiplicity="1" />
+          <End Role="LibraryBooks" Type="ProtoLibModel.LibraryBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BookInfo">
+              <PropertyRef Name="BookDetailsID" />
+            </Principal>
+            <Dependent Role="LibraryBooks">
+              <PropertyRef Name="BookInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LibraryBooks_BookStatus">
+          <End Role="BookStatus" Type="ProtoLibModel.BookStatus" Multiplicity="1" />
+          <End Role="LibraryBooks" Type="ProtoLibModel.LibraryBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BookStatus">
+              <PropertyRef Name="StatusID" />
+            </Principal>
+            <Dependent Role="LibraryBooks">
+              <PropertyRef Name="StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Branches_Contacts">
+          <End Role="Contacts" Type="ProtoLibModel.Contact" Multiplicity="1" />
+          <End Role="Branches" Type="ProtoLibModel.Branch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contacts">
+              <PropertyRef Name="ContactID" />
+            </Principal>
+            <Dependent Role="Branches">
+              <PropertyRef Name="ContactID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LibraryBooks_Branches">
+          <End Role="Branches" Type="ProtoLibModel.Branch" Multiplicity="1" />
+          <End Role="LibraryBooks" Type="ProtoLibModel.LibraryBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branches">
+              <PropertyRef Name="BranchID" />
+            </Principal>
+            <Dependent Role="LibraryBooks">
+              <PropertyRef Name="BranchID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contacts_Cities">
+          <End Role="Cities" Type="ProtoLibModel.City" Multiplicity="0..1" />
+          <End Role="Contacts" Type="ProtoLibModel.Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="Contacts">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Members_Contacts">
+          <End Role="Contacts" Type="ProtoLibModel.Contact" Multiplicity="1" />
+          <End Role="Members" Type="ProtoLibModel.Member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contacts">
+              <PropertyRef Name="ContactID" />
+            </Principal>
+            <Dependent Role="Members">
+              <PropertyRef Name="ContactID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Publishers_Contacts">
+          <End Role="Contacts" Type="ProtoLibModel.Contact" Multiplicity="1" />
+          <End Role="Publishers" Type="ProtoLibModel.Publisher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contacts">
+              <PropertyRef Name="ContactID" />
+            </Principal>
+            <Dependent Role="Publishers">
+              <PropertyRef Name="ContactID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transactions_LibraryBooks">
+          <End Role="LibraryBooks" Type="ProtoLibModel.LibraryBook" Multiplicity="1" />
+          <End Role="Transactions" Type="ProtoLibModel.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LibraryBooks">
+              <PropertyRef Name="BookID" />
+            </Principal>
+            <Dependent Role="Transactions">
+              <PropertyRef Name="BookID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StaffAccounts_Members">
+          <End Role="Members" Type="ProtoLibModel.Member" Multiplicity="1" />
+          <End Role="StaffAccounts" Type="ProtoLibModel.StaffAccount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="StaffAccounts">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transactions_Members">
+          <End Role="Members" Type="ProtoLibModel.Member" Multiplicity="1" />
+          <End Role="Transactions" Type="ProtoLibModel.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="Transactions">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subjects_Subjects">
+          <End Role="Subjects" Type="ProtoLibModel.Subject" Multiplicity="1" />
+          <End Role="Subjects1" Type="ProtoLibModel.Subject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subjects">
+              <PropertyRef Name="SubjectID" />
+            </Principal>
+            <Dependent Role="Subjects1">
+              <PropertyRef Name="ParentSubjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BooksByAuthor">
+          <End Role="Authors" Type="ProtoLibModel.Author" Multiplicity="*" />
+          <End Role="BookInfo" Type="ProtoLibModel.BookDetails" Multiplicity="*" />
+        </Association>
+        <Association Name="BooksByCategory">
+          <End Role="BookInfo" Type="ProtoLibModel.BookDetails" Multiplicity="*" />
+          <End Role="Categories" Type="ProtoLibModel.Category" Multiplicity="*" />
+        </Association>
+        <Association Name="BooksBySubject">
+          <End Role="BookInfo" Type="ProtoLibModel.BookDetails" Multiplicity="*" />
+          <End Role="Subjects" Type="ProtoLibModel.Subject" Multiplicity="*" />
+        </Association>
+        <EntityType Name="AccountPrefs">
+          <Key>
+            <PropertyRef Name="AccountID" />
+          </Key>
+          <Property Type="Int32" Name="AccountID" Nullable="false" />
+          <Property Type="Int32" Name="CacheSize" Nullable="false" />
+          <Property Type="Int32" Name="SearchResultsPageSize" Nullable="false" />
+          <Property Type="String" Name="FullScreenMode" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="StaffAccount" Relationship="ProtoLibModel.FK_AccountPrefs_StaffAccounts" FromRole="AccountPrefs" ToRole="StaffAccount" />
+        </EntityType>
+        <Association Name="FK_AccountPrefs_StaffAccounts">
+          <End Type="ProtoLibModel.StaffAccount" Role="StaffAccount" Multiplicity="1" />
+          <End Type="ProtoLibModel.AccountPrefs" Role="AccountPrefs" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="StaffAccount">
+              <PropertyRef Name="AccountID" />
+            </Principal>
+            <Dependent Role="AccountPrefs">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProtoLibModelStoreContainer" CdmEntityContainer="ProtoLibEntities">
+          <EntitySetMapping Name="Authors"><EntityTypeMapping TypeName="ProtoLibModel.Author"><MappingFragment StoreEntitySet="Authors">
+            <ScalarProperty Name="AuthorImage" ColumnName="AuthorImage" />
+                <ScalarProperty Name="AuthorID" ColumnName="AuthorID" />
+            <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+            <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+            <ScalarProperty Name="LastName" ColumnName="LastName" />
+            <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+            <ScalarProperty Name="DateOfDeath" ColumnName="DateOfDeath" />
+            <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="BookDetailsSet"><EntityTypeMapping TypeName="ProtoLibModel.BookDetails"><MappingFragment StoreEntitySet="BookInfo">
+            <ScalarProperty Name="BookDetailsID" ColumnName="BookInfoID" />
+            <ScalarProperty Name="ISBN13" ColumnName="ISBN13" />
+            <ScalarProperty Name="ISBN10" ColumnName="ISBN10" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+            <ScalarProperty Name="TitleLong" ColumnName="TitleLong" />
+            <ScalarProperty Name="PublisherID" ColumnName="PublisherID" />
+            <ScalarProperty Name="EditionNumber" ColumnName="EditionNumber" />
+            <ScalarProperty Name="EditionName" ColumnName="EditionName" />
+            <ScalarProperty Name="Printing" ColumnName="Printing" />
+            <ScalarProperty Name="Language" ColumnName="Language" />
+            <ScalarProperty Name="CoverImage" ColumnName="CoverImage" />
+            <ScalarProperty Name="DatePublished" ColumnName="DatePublished" />
+            <ScalarProperty Name="AmazonLink" ColumnName="AmazonLink" />
+            <ScalarProperty Name="Summary" ColumnName="Summary" />
+            <ScalarProperty Name="Notes" ColumnName="Notes" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="BookDimensions"><EntityTypeMapping TypeName="ProtoLibModel.BookDimensions"><MappingFragment StoreEntitySet="BookPhysicalInfo">
+            <ScalarProperty Name="BookDetailsID" ColumnName="BookInfoID" />
+            <ScalarProperty Name="Pages" ColumnName="Pages" />
+            <ScalarProperty Name="Height" ColumnName="Height" />
+            <ScalarProperty Name="Width" ColumnName="Width" />
+            <ScalarProperty Name="Thickness" ColumnName="Thickness" />
+            <ScalarProperty Name="Weight" ColumnName="Weight" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="BookStatus1"><EntityTypeMapping TypeName="ProtoLibModel.BookStatus"><MappingFragment StoreEntitySet="BookStatus">
+            <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Branches"><EntityTypeMapping TypeName="ProtoLibModel.Branch"><MappingFragment StoreEntitySet="Branches">
+            <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Categories"><EntityTypeMapping TypeName="ProtoLibModel.Category"><MappingFragment StoreEntitySet="Categories">
+            <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Cities"><EntityTypeMapping TypeName="ProtoLibModel.City"><MappingFragment StoreEntitySet="Cities">
+            <ScalarProperty Name="CityID" ColumnName="CityID" />
+            <ScalarProperty Name="City1" ColumnName="City" />
+            <ScalarProperty Name="StateOrProvince" ColumnName="StateOrProvince" />
+            <ScalarProperty Name="Country" ColumnName="Country" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Contacts"><EntityTypeMapping TypeName="ProtoLibModel.Contact"><MappingFragment StoreEntitySet="Contacts">
+            <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+            <ScalarProperty Name="AddLine1" ColumnName="AddLine1" />
+            <ScalarProperty Name="AddLine2" ColumnName="AddLine2" />
+            <ScalarProperty Name="AddLine3" ColumnName="AddLine3" />
+            <ScalarProperty Name="CityID" ColumnName="CityID" />
+            <ScalarProperty Name="Pin" ColumnName="Pin" />
+            <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+            <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+            <ScalarProperty Name="Email" ColumnName="Email" />
+            <ScalarProperty Name="Website" ColumnName="Website" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="LibraryBooks"><EntityTypeMapping TypeName="ProtoLibModel.LibraryBook"><MappingFragment StoreEntitySet="LibraryBooks">
+            <ScalarProperty Name="BookID" ColumnName="BookID" />
+            <ScalarProperty Name="BookInfoID" ColumnName="BookInfoID" />
+            <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+            <ScalarProperty Name="Price" ColumnName="Price" />
+            <ScalarProperty Name="ObtainedFrom" ColumnName="ObtainedFrom" />
+            <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Members"><EntityTypeMapping TypeName="ProtoLibModel.Member"><MappingFragment StoreEntitySet="Members">
+            <ScalarProperty Name="Portrait" ColumnName="Portrait" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+            <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+            <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+            <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+            <ScalarProperty Name="LastName" ColumnName="LastName" />
+            <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+            <ScalarProperty Name="Gender" ColumnName="Gender" />
+            <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Publishers"><EntityTypeMapping TypeName="ProtoLibModel.Publisher"><MappingFragment StoreEntitySet="Publishers">
+            <ScalarProperty Name="PublisherLogo" ColumnName="PublisherLogo" />
+                <ScalarProperty Name="PublisherID" ColumnName="PublisherID" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="StaffAccounts"><EntityTypeMapping TypeName="ProtoLibModel.StaffAccount"><MappingFragment StoreEntitySet="StaffAccounts">
+            <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+            <ScalarProperty Name="UserName" ColumnName="UserName" />
+            <ScalarProperty Name="Password" ColumnName="Password" />
+            <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+            <ScalarProperty Name="ClearanceLevel" ColumnName="ClearanceLevel" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Subjects"><EntityTypeMapping TypeName="ProtoLibModel.Subject"><MappingFragment StoreEntitySet="Subjects">
+            <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="ParentSubjectID" ColumnName="ParentSubjectID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Transactions"><EntityTypeMapping TypeName="ProtoLibModel.Transaction"><MappingFragment StoreEntitySet="Transactions">
+            <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+            <ScalarProperty Name="BookID" ColumnName="BookID" />
+            <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+            <ScalarProperty Name="CheckedOutOn" ColumnName="CheckedOutOn" />
+            <ScalarProperty Name="ReturnedOn" ColumnName="ReturnedOn" />
+            <ScalarProperty Name="Fine" ColumnName="Fine" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <AssociationSetMapping Name="BooksByAuthor" TypeName="ProtoLibModel.BooksByAuthor" StoreEntitySet="BooksByAuthor">
+            <EndProperty Name="Authors">
+              <ScalarProperty Name="AuthorID" ColumnName="AuthorID" />
+            </EndProperty>
+            <EndProperty Name="BookInfo">
+              <ScalarProperty Name="BookDetailsID" ColumnName="BookInfoID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="BooksByCategory" TypeName="ProtoLibModel.BooksByCategory" StoreEntitySet="BooksByCategory">
+            <EndProperty Name="BookInfo">
+              <ScalarProperty Name="BookDetailsID" ColumnName="BookInfoID" />
+            </EndProperty>
+            <EndProperty Name="Categories">
+              <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="BooksBySubject" TypeName="ProtoLibModel.BooksBySubject" StoreEntitySet="BooksBySubject">
+            <EndProperty Name="BookInfo">
+              <ScalarProperty Name="BookDetailsID" ColumnName="BookInfoID" />
+            </EndProperty>
+            <EndProperty Name="Subjects">
+              <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="AccountPrefsSet">
+            <EntityTypeMapping TypeName="ProtoLibModel.AccountPrefs">
+              <MappingFragment StoreEntitySet="AccountPrefs">
+                <ScalarProperty Name="FullScreenMode" ColumnName="FullScreenMode" />
+                <ScalarProperty Name="SearchResultsPageSize" ColumnName="SearchResultsPageSize" />
+                <ScalarProperty Name="CacheSize" ColumnName="CacheSize" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="ProtoLib">
+        <EntityTypeShape EntityType="ProtoLibModel.Author" Width="1.5" PointX="5.25" PointY="12.25" Height="2.2496956380208353" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProtoLibModel.BookDetails" Width="1.5" PointX="7.5" PointY="10.375" Height="4.3862109375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProtoLibModel.BookDimensions" Width="1.5" PointX="10" PointY="8.625" Height="2.0853483072916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProtoLibModel.BookStatus" Width="1.5" PointX="9.5" PointY="4.125" Height="1.4279589843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProtoLibModel.Branch" Width="1.5" PointX="5.25" PointY="5" Height="1.7566536458333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProtoLibModel.Category" Width="1.5" PointX="9.625" PointY="11" Height="1.4279589843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProtoLibModel.City" Width="1.5" PointX="2.75" PointY="11.5" Height="1.7566536458333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProtoLibModel.Contact" Width="1.5" PointX="3" PointY="6.875" Height="3.2357796223958317" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProtoLibModel.LibraryBook" Width="1.5" PointX="7.5" PointY="4.125" Height="2.5783902994791674" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProtoLibModel.Member" Width="1.5" PointX="5.25" PointY="7" Height="2.9070849609374996" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProtoLibModel.Publisher" Width="1.5" PointX="5.25" PointY="10.25" Height="1.7566536458333353" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProtoLibModel.StaffAccount" Width="1.5" PointX="7.5" PointY="7.5" Height="1.9210009765625031" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProtoLibModel.Subject" Width="1.5" PointX="9.625" PointY="12.75" Height="1.9210009765625014" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProtoLibModel.Transaction" Width="1.5" PointX="9.75" PointY="5.875" Height="2.2496956380208388" IsExpanded="true" />
+        <AssociationConnector Association="ProtoLibModel.FK_BookInfo_Publishers" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="11.27300048828125" />
+          <ConnectorPoint PointX="7.5" PointY="11.27300048828125" />
+        </AssociationConnector>
+        <AssociationConnector Association="ProtoLibModel.FK_BookPhysicalInfo_BookInfo1" ManuallyRouted="false">
+          <ConnectorPoint PointX="9" PointY="10.542674153645834" />
+          <ConnectorPoint PointX="10" PointY="10.542674153645834" />
+        </AssociationConnector>
+        <AssociationConnector Association="ProtoLibModel.FK_LibraryBooks_BookInfo" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.5011528461538459" PointY="10.375" />
+          <ConnectorPoint PointX="7.125" PointY="9.9988471538461532" />
+          <ConnectorPoint PointX="7.125" PointY="7.0783902998765313" />
+          <ConnectorPoint PointX="7.5" PointY="6.7033902998765313" />
+        </AssociationConnector>
+        <AssociationConnector Association="ProtoLibModel.FK_LibraryBooks_BookStatus" ManuallyRouted="false">
+          <ConnectorPoint PointX="9.5" PointY="4.8389794921875" />
+          <ConnectorPoint PointX="9" PointY="4.8389794921875" />
+        </AssociationConnector>
+        <AssociationConnector Association="ProtoLibModel.FK_Branches_Contacts" ManuallyRouted="false">
+          <ConnectorPoint PointX="3.21875" PointY="6.875" />
+          <ConnectorPoint PointX="3.21875" PointY="6.4754036458333353" />
+          <ConnectorPoint PointX="4.166666666666667" PointY="6.4754036458333344" />
+          <ConnectorPoint PointX="4.333333333333333" PointY="6.4754036458333353" />
+          <ConnectorPoint PointX="4.5729186666666672" PointY="6.4754036458333344" />
+          <ConnectorPoint PointX="4.7395853333333333" PointY="6.4754036458333353" />
+          <ConnectorPoint PointX="5.25" PointY="6.4754036458333353" />
+        </AssociationConnector>
+        <AssociationConnector Association="ProtoLibModel.FK_LibraryBooks_Branches" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="5.8204426499382649" />
+          <ConnectorPoint PointX="7.5" PointY="5.8204426499382649" />
+        </AssociationConnector>
+        <AssociationConnector Association="ProtoLibModel.FK_Contacts_Cities" ManuallyRouted="false">
+          <ConnectorPoint PointX="3.625" PointY="11.5" />
+          <ConnectorPoint PointX="3.625" PointY="10.110779622395832" />
+        </AssociationConnector>
+        <AssociationConnector Association="ProtoLibModel.FK_Members_Contacts" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="8.45354248046875" />
+          <ConnectorPoint PointX="5.25" PointY="8.45354248046875" />
+        </AssociationConnector>
+        <AssociationConnector Association="ProtoLibModel.FK_Publishers_Contacts" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.40625" PointY="10.110779622395832" />
+          <ConnectorPoint PointX="4.40625" PointY="10.84375" />
+          <ConnectorPoint PointX="5.25" PointY="10.84375" />
+        </AssociationConnector>
+        <AssociationConnector Association="ProtoLibModel.FK_Transactions_LibraryBooks" ManuallyRouted="false">
+          <ConnectorPoint PointX="9" PointY="6.2891951499382657" />
+          <ConnectorPoint PointX="9.75" PointY="6.2891951499382657" />
+        </AssociationConnector>
+        <AssociationConnector Association="ProtoLibModel.FK_StaffAccounts_Members" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="8.3736474988606773" />
+          <ConnectorPoint PointX="7.041666666666667" PointY="8.3736474988606773" />
+          <ConnectorPoint PointX="7.208333333333333" PointY="8.3736474988606773" />
+          <ConnectorPoint PointX="7.5" PointY="8.3736474988606773" />
+        </AssociationConnector>
+        <AssociationConnector Association="ProtoLibModel.FK_Transactions_Members" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="7.2187500001117586" />
+          <ConnectorPoint PointX="7.041666666666667" PointY="7.2187500001117577" />
+          <ConnectorPoint PointX="7.208333333333333" PointY="7.2187500001117586" />
+          <ConnectorPoint PointX="9.75" PointY="7.2187500001117586" />
+        </AssociationConnector>
+        <AssociationConnector Association="ProtoLibModel.FK_Subjects_Subjects" ManuallyRouted="false">
+          <ConnectorPoint PointX="10.156923076923077" PointY="14.671000976562501" />
+          <ConnectorPoint PointX="10.156923076923077" PointY="14.921000976562503" />
+          <ConnectorPoint PointX="10.603461538461538" PointY="14.921000976562503" />
+          <ConnectorPoint PointX="10.603461538461538" PointY="14.671000976562501" />
+        </AssociationConnector>
+        <AssociationConnector Association="ProtoLibModel.BooksByAuthor" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="13.457021484375" />
+          <ConnectorPoint PointX="7.5" PointY="13.457021484375" />
+        </AssociationConnector>
+        <AssociationConnector Association="ProtoLibModel.BooksByCategory" ManuallyRouted="false">
+          <ConnectorPoint PointX="9" PointY="11.7139794921875" />
+          <ConnectorPoint PointX="9.625" PointY="11.7139794921875" />
+        </AssociationConnector>
+        <AssociationConnector Association="ProtoLibModel.BooksBySubject" ManuallyRouted="false">
+          <ConnectorPoint PointX="9" PointY="13.710500488281252" />
+          <ConnectorPoint PointX="9.625" PointY="13.710500488281252" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="ProtoLibModel.AccountPrefs" Width="1.5" PointX="3.5" PointY="4.375" Height="1.7566536458333388" />
+        <AssociationConnector Association="ProtoLibModel.FK_AccountPrefs_StaffAccounts" >
+          <ConnectorPoint PointX="7.5" PointY="9.0107499030761744" />
+          <ConnectorPoint PointX="7.208333333333333" PointY="9.0107499030761744" />
+          <ConnectorPoint PointX="7.041666666666667" PointY="9.0107499030761744" />
+          <ConnectorPoint PointX="6.8125" PointY="9.0107499030761744" />
+          <ConnectorPoint PointX="6.8125" PointY="6.8125" />
+          <ConnectorPoint PointX="4.25" PointY="6.8125" />
+          <ConnectorPoint PointX="4.25" PointY="6.1316536458333335" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

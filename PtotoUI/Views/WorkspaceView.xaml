@@ -1,0 +1,69 @@
+﻿<UserControl x:Class="ProtoUI.Views.WorkspaceView"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:local="clr-namespace:ProtoUI" Loaded="UserControl_Loaded"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:im="clr-namespace:Microsoft.Expression.Interactivity.Media;assembly=Microsoft.Expression.Interactions"
+	xmlns:samples="clr-namespace:Expression.Samples.Interactivity;assembly=Expression.Samples.Interactivity"             
+	>
+	
+	<UserControl.Resources>
+		<Storyboard x:Key="FSTInwards">
+			<DoubleAnimation AccelerationRatio="1" Storyboard.TargetName="PassiveLayerScale" Storyboard.TargetProperty="ScaleX" From="1" To="5" Duration="0:0:0.4"/>
+			<DoubleAnimation AccelerationRatio="1" Storyboard.TargetName="PassiveLayerScale" Storyboard.TargetProperty="ScaleY" From="1" To="5" Duration="0:0:0.4"/>
+			<DoubleAnimation AccelerationRatio="1" Storyboard.TargetName="PassiveLayer" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.4"/>
+			
+			<DoubleAnimation  DecelerationRatio="1" Storyboard.TargetName="ActiveLayerScale" Storyboard.TargetProperty="ScaleX" From="0.1" To="1" Duration="0:0:0.4"/>
+			<DoubleAnimation DecelerationRatio="1" Storyboard.TargetName="ActiveLayerScale" Storyboard.TargetProperty="ScaleY" From="0.1" To="1" Duration="0:0:0.4"/>
+			<DoubleAnimation DecelerationRatio="1" Storyboard.TargetName="ActiveLayer" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.4"/>			
+		</Storyboard>
+
+		<Storyboard x:Key="FSTOutwards">
+			<DoubleAnimation AccelerationRatio="1" Storyboard.TargetName="PassiveLayerScale" Storyboard.TargetProperty="ScaleX" From="1" To="0.3" Duration="0:0:0.4"/>
+			<DoubleAnimation AccelerationRatio="1" Storyboard.TargetName="PassiveLayerScale" Storyboard.TargetProperty="ScaleY" From="1" To="0.3" Duration="0:0:0.4"/>
+			<DoubleAnimation AccelerationRatio="1" Storyboard.TargetName="PassiveLayer" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.4"/>
+			
+			<DoubleAnimation  DecelerationRatio="1" Storyboard.TargetName="ActiveLayerScale" Storyboard.TargetProperty="ScaleX" From="5" To="1" Duration="0:0:0.4"/>
+			<DoubleAnimation DecelerationRatio="1" Storyboard.TargetName="ActiveLayerScale" Storyboard.TargetProperty="ScaleY" From="5" To="1" Duration="0:0:0.4"/>
+			<DoubleAnimation DecelerationRatio="1" Storyboard.TargetName="ActiveLayer" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.4"/>			
+		</Storyboard>
+	
+		
+	</UserControl.Resources>
+	
+<!--	Got this ability thanks to the Blend 3 SDK and the Blend Samples-->
+<!--	http://stackoverflow.com/questions/1424202/how-can-i-have-a-wpf-eventtrigger-on-a-view-trigger-when-the-underlying-viewmodel-->
+	<i:Interaction.Triggers>
+		<samples:DataEventTrigger EventName="InitiateTransitionFSTInwards">
+			<im:ControlStoryboardAction Storyboard="{StaticResource FSTInwards}"
+						ControlStoryboardOption="Play"/>
+		</samples:DataEventTrigger>
+	
+		<samples:DataEventTrigger EventName="InitiateTransitionFSTOutwards">
+			<im:ControlStoryboardAction Storyboard="{StaticResource FSTOutwards}"
+						ControlStoryboardOption="Play"/>
+		</samples:DataEventTrigger>
+	</i:Interaction.Triggers>
+<!--	______________________________________________________________-->
+	
+	<Grid >
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		
+		
+	
+
+		<ContentPresenter x:Name="PassiveLayer" Grid.Column="0" Content="{Binding PassiveLayer}">
+			<ContentPresenter.RenderTransform>
+				<ScaleTransform x:Name="PassiveLayerScale" CenterX="512" CenterY="100"/>
+			</ContentPresenter.RenderTransform>
+		</ContentPresenter>
+		
+		<ContentPresenter x:Name="ActiveLayer" Grid.Column="0" Content="{Binding ActiveLayer}">
+			<ContentPresenter.RenderTransform>
+				<ScaleTransform x:Name="ActiveLayerScale" CenterX="512" CenterY="100"/>
+			</ContentPresenter.RenderTransform>
+		</ContentPresenter>
+	</Grid>
+</UserControl>

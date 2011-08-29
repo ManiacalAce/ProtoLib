@@ -1,0 +1,245 @@
+﻿<UserControl x:Class="ProtoUI.Views.Screens.ManipulateScreens.ManipBookDetailsView"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:general="clr-namespace:ProtoUI.General">
+	<UserControl.Resources>
+		<general:ManipulateBarTemplateSelector x:Key="ManipBarTemplateSelector"/>
+	</UserControl.Resources>
+	<Grid IsEnabled="{Binding DialogHost.IsParentEnabled}">
+		<DockPanel LastChildFill="True">
+			
+	<!--		Manipulation bar-->
+			<ContentPresenter ContentTemplateSelector="{StaticResource ManipBarTemplateSelector}" 
+				DockPanel.Dock="Top" Content="{Binding ManipulateBar}" />
+			
+	
+			
+	<!--		Shortcuts bar-->
+			<ContentPresenter DockPanel.Dock="Bottom" Content="{StaticResource ShortcutsBar}"
+						Height="75"/>	
+		
+			
+	<!--		Main content area-->
+			<ScrollViewer VerticalScrollBarVisibility="Auto" 
+			              HorizontalScrollBarVisibility="Hidden"
+							>
+				<Grid IsEnabled="{Binding ManipulateBar.AnyModificationModeOn}">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition/>
+						<ColumnDefinition/>
+						<ColumnDefinition/>
+						<ColumnDefinition/>
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition/>
+						<RowDefinition/>
+						<RowDefinition/>
+						<RowDefinition/>
+					</Grid.RowDefinitions>
+				
+				
+	<!--				Main content area resources-->
+					<Grid.Resources>
+						<Style TargetType="HeaderedContentControl" BasedOn="{StaticResource FormHeaderedControlStyle}">
+							
+						</Style>
+					
+						<Style TargetType="TextBox" BasedOn="{StaticResource FormTextBoxStyle}">
+							<Setter Property="Grid.Column" Value="1"/>
+							<Setter Property="Margin" Value="5"/>
+							<Setter Property="HorizontalContentAlignment" Value="Center"/>
+							<Setter Property="FontSize" Value="12"/>
+						</Style>
+					
+						<Style TargetType="TextBlock">
+							<Setter Property="Foreground" Value="Silver"/>
+							<Setter Property="Grid.Column" Value="0"/>
+							<Setter Property="HorizontalAlignment" Value="Center"/>
+							<Setter Property="VerticalAlignment" Value="Center"/>
+							<Setter Property="FontSize" Value="13"/>
+						</Style>
+					</Grid.Resources>
+				
+				
+	<!--				Basic info box-->
+					<HeaderedContentControl Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0"
+						Margin="8">
+						<HeaderedContentControl.Header>
+							<TextBlock Text="Basic Information" HorizontalAlignment="Left"
+							           Width="200" Height="25" Foreground="White"/>
+						</HeaderedContentControl.Header>
+					
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="125"/>
+								<ColumnDefinition/>
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition/>
+								<RowDefinition/>
+								<RowDefinition/>
+								<RowDefinition/>
+								<RowDefinition/>
+							</Grid.RowDefinitions>
+						
+							<Grid.Resources>
+							
+							</Grid.Resources>
+						
+							<TextBlock Text="ID" Grid.Row="0"/>
+							<TextBox Text="{Binding Path=ItemID, Mode=OneWay}" Grid.Row="0" IsReadOnly="True" />
+							
+							<TextBlock Text="Title" FontSize="20" Grid.Row="1"/>
+							<TextBox Text="{Binding Title, ValidatesOnDataErrors=True}" Grid.Row="1" Height="40" FontSize="20" FontFamily="Comic Sans MS"/>
+						
+							<TextBlock Text="Long Title" Grid.Row="2"/>
+							<TextBox Text="{Binding TitleLong, ValidatesOnDataErrors=True}" Grid.Row="2" />
+						
+							<TextBlock Text="Authors" Grid.Row="3"/>
+                            <StackPanel Orientation="Horizontal"  Grid.Column="1" Grid.Row="3">
+							    <Button Content="Select Authors" Width="60" Height="30" FontSize="8" 
+								    Command="{Binding ChooseAuthorsCommand}"/>
+                                <ItemsControl  ItemsSource="{Binding SelectedAuthors, ValidatesOnDataErrors=True}" Margin="6"
+                                              Width="300" Height="Auto" DisplayMemberPath="Name" Foreground="Silver" FontSize="14" FontFamily="Arial"/>
+                            </StackPanel>
+						
+							<TextBlock Text="Publisher" Grid.Row="4"/>
+                            
+						</Grid>
+					</HeaderedContentControl>
+				
+				
+				
+	<!--				Cover image area-->
+					<StackPanel Grid.Column="3" Grid.Row="0">
+						<Image />
+	<!--					<Hyperlink />-->
+					</StackPanel>
+				
+				
+	<!--				Publishing information-->
+					<HeaderedContentControl Width="450" Height="280" Grid.Column="0" Grid.ColumnSpan="2" 
+						Grid.Row="1" Margin="8"> 
+						<HeaderedContentControl.Header>
+							<TextBlock Text="Publishing Details" HorizontalAlignment="Left"
+							           Width="200" Height="20" Foreground="White"/>
+						</HeaderedContentControl.Header>
+					
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="110"/>
+								<ColumnDefinition/>
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition/>
+								<RowDefinition/>
+								<RowDefinition/>
+								<RowDefinition/>
+								<RowDefinition/>
+								<RowDefinition/>
+								<RowDefinition/>
+							</Grid.RowDefinitions>
+						
+							<TextBlock Text="ISBN13" Grid.Row="0"/>
+							<TextBox Text="{Binding ISBN13, ValidatesOnDataErrors=True}" Grid.Row="0"/>
+						
+							<TextBlock Text="ISBN10" Grid.Row="1"/>
+							<TextBox Text="{Binding ISBN10, ValidatesOnDataErrors=True}" Grid.Row="1"/>
+						
+							<TextBlock Text="Published On" Grid.Row="2"/>
+							<TextBox Text="{Binding DatePublished, ValidatesOnDataErrors=True}" Grid.Row="2"/>
+							
+							<TextBlock Text="Edition Number" Grid.Row="3"/>
+							<TextBox Text="{Binding EditionNumber, ValidatesOnDataErrors=True}" Grid.Row="3"/>
+						
+							<TextBlock Text="Edition Name" Grid.Row="4"/>
+							<TextBox Text="{Binding EditionName, ValidatesOnDataErrors=True}" Grid.Row="4"/>
+						
+							<TextBlock Text="Printing" Grid.Row="5"/>
+							<TextBox Text="{Binding Printing, ValidatesOnDataErrors=True}" Grid.Row="5"/>
+						
+							<TextBlock Text="Language" Grid.Row="6"/>
+							<TextBox Text="{Binding Language, ValidatesOnDataErrors=True}" Grid.Row="6"/>
+						</Grid>
+					</HeaderedContentControl>
+				
+					
+	<!--				Physical dimensions-->
+					<HeaderedContentControl Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2"
+						Margin="8" Width="450" Height="200" VerticalAlignment="Top">
+						<HeaderedContentControl.Header>
+							<TextBlock Text="Physical Dimensions" HorizontalAlignment="Left"
+							           Width="200" Height="20" Foreground="White"/>
+						</HeaderedContentControl.Header>
+					
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="110"/>
+								<ColumnDefinition/>
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition/>
+								<RowDefinition/>
+								<RowDefinition/>
+								<RowDefinition/>
+								<RowDefinition/>
+							</Grid.RowDefinitions>				
+						
+							<TextBlock Text="Pages" Grid.Row="0"/>
+							<TextBox Text="{Binding Pages, ValidatesOnDataErrors=True}" Grid.Row="0"/>
+						
+							<TextBlock Text="Height" Grid.Row="1"/>
+							<TextBox Text="{Binding Height, ValidatesOnDataErrors=True}" Grid.Row="1"/>
+						
+							<TextBlock Text="Width" Grid.Row="2"/>
+							<TextBox Text="{Binding Width, ValidatesOnDataErrors=True}" Grid.Row="2"/>
+						
+							<TextBlock Text="Thickness" Grid.Row="3"/>
+							<TextBox Text="{Binding Thickness, ValidatesOnDataErrors=True}" Grid.Row="3"/>
+						
+							<TextBlock Text="Weight" Grid.Row="4"/>
+							<TextBox Text="{Binding Weight, ValidatesOnDataErrors=True}" Grid.Row="4"/>
+						
+						</Grid>
+					
+					</HeaderedContentControl>
+				
+				
+	<!--				Summary-->
+					<HeaderedContentControl Width="500" Height="200" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+						Margin="10,5,15,5" HorizontalAlignment="Left" VerticalAlignment="Top">
+						<HeaderedContentControl.Header>
+							<TextBlock Text="Summary" HorizontalAlignment="Left"
+							           Width="200" Height="20" Foreground="White"/>
+						</HeaderedContentControl.Header>
+					
+						<TextBox  AcceptsReturn="True" AcceptsTab="True"
+							TextWrapping="Wrap" Text="{Binding Summary}" 
+						    HorizontalContentAlignment="Left" FontSize="14"
+							VerticalScrollBarVisibility="Auto"/>
+					</HeaderedContentControl>			
+				
+				
+	<!--				Notes-->
+					<HeaderedContentControl Width="450" Height="200" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"
+						Margin="10,5,15,5" HorizontalAlignment="Left" VerticalAlignment="Top">
+						<HeaderedContentControl.Header>
+							<TextBlock Text="Notes" HorizontalAlignment="Left"
+							           Width="200" Height="20" Foreground="White"/>
+						</HeaderedContentControl.Header>
+					
+						<TextBox AcceptsReturn="True" AcceptsTab="True"
+							TextWrapping="Wrap" Text="{Binding Notes}" 
+						    HorizontalContentAlignment="Left" FontSize="14"
+							VerticalScrollBarVisibility="Auto"/>
+					</HeaderedContentControl>			
+				</Grid>
+			</ScrollViewer>
+		</DockPanel>
+	
+	
+	
+<!--		Dialog content-->
+		<ContentPresenter Content="{Binding DialogHost.ActiveDialog}" />
+	</Grid>
+</UserControl>

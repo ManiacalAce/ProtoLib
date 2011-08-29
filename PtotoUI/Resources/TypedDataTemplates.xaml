@@ -1,0 +1,61 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:vms="clr-namespace:ProtoUI.ViewModels"	
+	xmlns:vms_screens="clr-namespace:ProtoUI.ViewModels.Screens"
+	xmlns:vms_screens_searchscreens="clr-namespace:ProtoUI.ViewModels.Screens.SearchScreens"
+	xmlns:vms_general="clr-namespace:ProtoUI.ViewModels.General"
+	xmlns:vms_screens_manipscreens="clr-namespace:ProtoUI.ViewModels.Screens.ManipulateScreens"
+	xmlns:vms_screens_manipscreens_dialogboxes="clr-namespace:ProtoUI.ViewModels.Screens.ManipulateScreens.DialogBoxes"
+	xmlns:vms_screens_transactionscreens="clr-namespace:ProtoUI.ViewModels.Screens.TransactionScreens"
+	
+	xmlns:vms_xamlHacks="clr-namespace:ProtoUI.General.XamlDeficiencyHacks"
+	
+	xmlns:views="clr-namespace:ProtoUI.Views"
+	xmlns:views_screens="clr-namespace:ProtoUI.Views.Screens"
+	xmlns:views_screens_searchscreens="clr-namespace:ProtoUI.Views.Screens.SearchScreens"
+	xmlns:views_general="clr-namespace:ProtoUI.Views.General"
+	xmlns:views_screens_manipscreens="clr-namespace:ProtoUI.Views.Screens.ManipulateScreens"
+	xmlns:views_screens_manipscreens_dialogboxes="clr-namespace:ProtoUI.Views.Screens.ManipulateScreens.DialogBoxes"
+	xmlns:views_screens_transactionscreens="clr-namespace:ProtoUI.Views.Screens.TransactionScreens"
+>
+
+<!--	Typed DataTemplates that describe how to visually render ViewModel objects-->
+	<DataTemplate DataType="{x:Type vms:WorkspaceViewModel}">
+		<views:WorkspaceView/>
+	</DataTemplate>
+	
+	<DataTemplate DataType="{x:Type vms_screens:HomeScreenViewModel}">
+		<views_screens:HomeScreenView/>
+	</DataTemplate>		
+	
+	<DataTemplate DataType="{x:Type vms_screens_searchscreens:SearchHostScreenViewModel}">
+		<views_screens_searchscreens:SearchHostScreenView/>
+	</DataTemplate>
+
+
+
+	<DataTemplate DataType="{x:Type vms_screens_manipscreens:ManipBookDetailsViewModel}">
+		<views_screens_manipscreens:ManipBookDetailsView/>
+	</DataTemplate>
+	
+	<DataTemplate DataType="{x:Type vms_screens_manipscreens_dialogboxes:ChooseAuthorsDialogViewModel}">
+		<views_screens_manipscreens_dialogboxes:ChooseAuthorsDialogView/>
+	</DataTemplate>
+	
+	
+	<DataTemplate DataType="{x:Type vms_screens_transactionscreens:EnterMemberIdViewModel}">
+		<views_screens_transactionscreens:EnterMemberIdView/>
+	</DataTemplate>
+	
+	<DataTemplate DataType="{x:Type vms_screens_transactionscreens:MemberAccountViewModel}">
+		<views_screens_transactionscreens:MemberAccountScreenView/>
+	</DataTemplate>
+
+
+<!--	For use by the ManipulateBarTemplateSelector class to -->
+<!--	concretely identify the templated type so a view may be applied to it-->
+	<DataTemplate x:Key="BookDetailsManipulateBarTemplate">
+		<views_general:ManipulateBarView/>
+	</DataTemplate>
+
+</ResourceDictionary>

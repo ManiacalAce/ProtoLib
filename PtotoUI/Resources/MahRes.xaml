@@ -1,0 +1,42 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:controls="clr-namespace:ProtoUI.Controls"
+	xmlns:general="clr-namespace:ProtoUI.General"
+>
+	
+	
+	<LinearGradientBrush x:Key="BWGradient">
+		<GradientStop Color="#DA000000" Offset="0"/>
+		<GradientStop Color="#B7000000" Offset="0.5"/>
+		<GradientStop Color="#D2070000" Offset="1"/>
+	</LinearGradientBrush>
+
+	
+	<general:BooleanToVisibilityConverter x:Key="BoolToVisConv" />
+	<general:InverseBooleanConverter x:Key="InverseBoolConv"/>
+	
+
+<!--	The shortcuts bar found at the bottom of each screen... except the home screen-->
+	<StackPanel x:Shared="False" x:Key="ShortcutsBar" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+		<StackPanel.Resources>
+			<Style TargetType="{x:Type controls:ImageButton}" BasedOn="{StaticResource {x:Type controls:ImageButton}}">
+				<Setter Property="Margin" Value="20,3,20,3"/>
+				<Setter Property="HorizontalAlignment" Value="Center"/>
+				<Setter Property="ImageSize" Value="40"/>
+				<Setter Property="ScaleCenterX" Value="20"/>
+				<Setter Property="ScaleCenterY" Value="30"/>
+				<Setter Property="Template" Value="{StaticResource BulgingImageButtonTemplate}"/>
+				<Setter Property="Visibility" Value="{Binding Path=IsLoggedIn, Converter={StaticResource BoolToVisConv}}"/>
+			</Style>
+		</StackPanel.Resources>
+	
+		<controls:ImageButton ImageSource="\Images\Icons\home.png"  Command="{Binding Path=HomeShortcutCommand}" Visibility="Visible"/>
+		<controls:ImageButton ImageSource="\Images\Icons\search.png" Command="{Binding Path=SearchShortcutCommand}" Visibility="Visible"/>
+		<controls:ImageButton ImageSource="\Images\Icons\edit.png"  Command="{Binding Path=ManipulateRecordsShortcutCommand}"/>
+		<controls:ImageButton ImageSource="\Images\Icons\trans.png"  Command="{Binding Path=TransactionsShortcutCommand}"/>
+		<controls:ImageButton ImageSource="\Images\Icons\settings2.png"  Command="{Binding Path=SettingsShortcutCommand}"/>
+		<controls:ImageButton ImageSource="\Images\Icons\logout.png"  Command="{Binding Path=LogoutShortcutCommand}"/>
+		<controls:ImageButton ImageSource="\Images\Icons\exit.png"  Command="{Binding Path=ExitAppShortcutCommand}" Visibility="Visible"/>
+	</StackPanel>
+
+</ResourceDictionary>

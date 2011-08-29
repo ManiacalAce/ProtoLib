@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<UserControl
+	x:Class="ProtoUI.Views.Screens.ManipulateScreens.DialogBoxes.ChooseAuthorsDialogView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	Width="700"
+	Height="625">
+	<Grid>
+		<Border
+			Padding="30"
+			CornerRadius="75,0,75,0"
+			Background="#FF232823">
+			<StackPanel>
+				<StackPanel.Resources>
+					<Style
+						TargetType="TextBox"
+						BasedOn="{StaticResource FormTextBoxStyle}"></Style>
+					<DataTemplate
+						x:Key="AuthorListBoxDT">
+						<Border
+							BorderThickness="0.5"
+							BorderBrush="Blue"
+							Margin="3"
+							CornerRadius="3"
+							HorizontalAlignment="Stretch">
+							<StackPanel>
+								<TextBlock
+									FontSize="14"
+									Text="{Binding Name}"
+									Foreground="Blue" />
+								<DockPanel
+									LastChildFill="True">
+									<TextBlock
+										DockPanel.Dock="Left"
+										FontSize="11"
+										Text="{Binding Nationality}" />
+									<StackPanel
+										Orientation="Horizontal"
+										DockPanel.Dock="Right">
+										<TextBlock
+											FontSize="11"
+											Text="  Age " />
+										<TextBlock
+											FontSize="11"
+											Text="{Binding Age}" />
+										<StackPanel
+											Width="100"
+											HorizontalAlignment="Stretch" />
+									</StackPanel>
+								</DockPanel>
+							</StackPanel>
+						</Border>
+					</DataTemplate>
+				</StackPanel.Resources>
+				<TextBlock
+					Text="Choose Authors"
+					FontSize="30"
+					FontWeight="Bold"
+					Foreground="Silver"
+					HorizontalAlignment="Center" />
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							Width="250" />
+						<ColumnDefinition
+							Width="100" />
+						<ColumnDefinition />
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition
+							Height="*" />
+						<RowDefinition
+							Height="70" />
+					</Grid.RowDefinitions>
+					<!--					Filter list-->
+					<StackPanel
+						Grid.Column="0">
+						<TextBox
+							Height="35"
+							FontSize="16"
+							Margin="5"
+							Text="{Binding Path=FilterText, UpdateSourceTrigger=PropertyChanged}" />
+						<ListBox
+							Margin="5"
+							ItemsSource="{Binding FilterList}"
+							Padding="3"
+							Height="400"
+							HorizontalContentAlignment="Stretch"
+							Background="DarkGray"
+							ItemTemplate="{StaticResource AuthorListBoxDT}"
+							SelectedIndex="{Binding CurrentCandidateAuthorIndex}"></ListBox>
+					</StackPanel>
+					<StackPanel
+						Grid.Column="1">
+						<Button
+							Width="70"
+							Command="{Binding SelectAuthorCommand}"
+							Content="--&gt;"
+							Margin="2,50,2,10"
+							Height="30" />
+						
+						<Button 
+							Width="70"
+							Content="&lt;--"
+							Margin="2,10,2,10"
+							Height="30"
+							Command="{Binding UnSelectAuthorCommand}"/>
+					</StackPanel>
+					<!--					SelectedAuthorsList-->
+					<StackPanel
+						Grid.Column="2">
+						<TextBlock
+							Text="Enter Author ID:"
+							FontWeight="Bold"
+							Foreground="Silver"
+							Margin="3" />
+						<StackPanel
+							Orientation="Horizontal"
+							Margin="3"
+							Height="20.27666667">
+							<TextBox
+								Text="{Binding EnteredAuthorId}"
+								FontSize="9"
+								Width="200" />
+							<Button
+								Content="Go!"
+								Command="{Binding AddAuthorByIdCommand}"
+								Width="60" />
+						</StackPanel>
+						<ListBox
+							Background="DarkGray"
+							Margin="3"
+							Height="400"
+							ItemTemplate="{StaticResource AuthorListBoxDT}"
+							HorizontalContentAlignment="Stretch"
+							ItemsSource="{Binding SelectedAuthorsList}"
+							SelectedIndex="{Binding CurrentSelectedAuthorIndex}">
+						</ListBox>
+					</StackPanel>
+					<StackPanel
+						Orientation="Horizontal"
+						Grid.Column="0"
+						Grid.ColumnSpan="3"
+						Grid.Row="1"
+						HorizontalAlignment="Center"
+						VerticalAlignment="Stretch"
+						Margin="0,1,0,-1"
+						Width="320">
+						<Button
+							Width="100"
+							Height="40"
+							Content="OK"
+							Margin="30,5,30,5"
+							Command="{Binding OkCommand}" />
+						<Button
+							Width="100"
+							Height="40"
+							Content="Cancel"
+							Command="{Binding CancelCommand}"
+							Margin="30,5,30,5" />
+					</StackPanel>
+				</Grid>
+			</StackPanel>
+		</Border>
+	</Grid>
+</UserControl>

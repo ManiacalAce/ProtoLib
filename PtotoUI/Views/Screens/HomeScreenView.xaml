@@ -1,0 +1,273 @@
+﻿<UserControl x:Class="ProtoUI.Views.Screens.HomeScreenView"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:controls="clr-namespace:ProtoUI.Controls"
+	xmlns:general="clr-namespace:ProtoUI.General"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:im="clr-namespace:Microsoft.Expression.Interactivity.Media;assembly=Microsoft.Expression.Interactions"
+	xmlns:samples="clr-namespace:Expression.Samples.Interactivity;assembly=Expression.Samples.Interactivity"             
+	xmlns:aero="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero"
+>
+
+	
+	<DockPanel LastChildFill="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+		<DockPanel.Resources>
+			<Style TargetType="{x:Type controls:ImageButton}" BasedOn="{StaticResource {x:Type controls:ImageButton}}">
+				<Setter Property="HorizontalAlignment" Value="Center"/>
+				<Setter Property="ImageSize" Value="50"/>
+				<Setter Property="ScaleCenterX" Value="20"/>
+				<Setter Property="ScaleCenterY" Value="30"/>
+				<Setter Property="Template" Value="{StaticResource BulgingImageButtonTemplate}"/>
+			</Style>
+		
+		</DockPanel.Resources>
+	
+<!--		Creator info and anim-->
+		<TextBlock DockPanel.Dock="Bottom" FontSize="16" FontFamily="Comic Sans MS"
+			Text="Created by Aravinda Rao" Foreground="Silver" Opacity="0">
+		
+			<TextBlock.Triggers>
+				<EventTrigger RoutedEvent="FrameworkElement.Loaded">
+					<BeginStoryboard>
+						<Storyboard>
+							<DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="1" BeginTime="0:0:3" Duration="0:0:4"/>
+							<DoubleAnimation Storyboard.TargetName="CreatorTranslate" BeginTime="0:0:7.5" Storyboard.TargetProperty="X" To="0" Duration="0:0:2"/>
+							<DoubleAnimation Storyboard.TargetName="CreatorTranslate" BeginTime="0:0:7.5" Storyboard.TargetProperty="Y" To="0" Duration="0:0:2"/>
+							<DoubleAnimation Storyboard.TargetName="CreatorScale" BeginTime="0:0:7.5" Storyboard.TargetProperty="ScaleX" To="1" Duration="0:0:2"/>
+						<DoubleAnimation Storyboard.TargetName="CreatorScale" BeginTime="0:0:7.5" Storyboard.TargetProperty="ScaleY" To="1" Duration="0:0:2"/>
+						</Storyboard>
+					</BeginStoryboard>
+				</EventTrigger>
+			</TextBlock.Triggers>
+		
+			<TextBlock.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform x:Name="CreatorTranslate" X="100" Y="-100"/>
+					<ScaleTransform x:Name="CreatorScale" ScaleX="1.4" ScaleY="1.4"/>
+				</TransformGroup>
+			</TextBlock.RenderTransform>
+		</TextBlock>
+	
+		<StackPanel DockPanel.Dock="Top" Height="75">
+		</StackPanel>
+	
+			
+		<Border BorderThickness="0,2,0,0" CornerRadius="40,40,0,0" BorderBrush="Purple">
+			
+<!--			Overlapped content holder-->
+			<Grid Margin="0,0,0,250">
+				
+				<Grid.Resources>
+					<Storyboard x:Key="LoginSuccessAnim">
+						<!--<DoubleAnimation Storyboard.TargetName="UNameBoxTranslate" 
+							Storyboard.TargetProperty="X" From="0" To="-500" Duration="0:0:0.5"/>
+						<DoubleAnimation Storyboard.TargetName="UNameBoxTranslate" 
+							Storyboard.TargetProperty="Y" From="0" To="-500" Duration="0:0:0.5"/>
+						
+						<DoubleAnimation Storyboard.TargetName="PassBoxTranslate" 
+							Storyboard.TargetProperty="X" From="0" To="100" Duration="0:0:0.5"/>
+						<DoubleAnimation Storyboard.TargetName="PassBoxTranslate" 
+							Storyboard.TargetProperty="Y" From="0" To="1000" Duration="0:0:0.5"/>
+					
+						<DoubleAnimation Storyboard.TargetName="LoginBtnTranslate" 
+							Storyboard.TargetProperty="X" From="0" To="1200" Duration="0:0:0.5"/>
+						<DoubleAnimation Storyboard.TargetName="LoginBtnTranslate" 
+							Storyboard.TargetProperty="Y" From="0" To="-100" Duration="0:0:0.5"/>-->
+					
+						<DoubleAnimation Storyboard.TargetName="LoginBox" Storyboard.TargetProperty="Opacity"
+							To="1" Duration="0:0:1"/>
+						
+					</Storyboard>
+				
+				
+					<Style TargetType="TextBlock">
+						<Setter Property="FontSize" Value="14"/>
+						<Setter Property="FontFamily" Value="Comic Sans MS"/>
+						<Setter Property="FontWeight" Value="Bold"/>
+						<Setter Property="TextWrapping" Value="Wrap"/>
+						<Setter Property="Height" Value="40"/>
+						<Setter Property="Foreground" Value="#FFABABAB"/>
+						<Setter Property="Width" Value="90"/>
+						<Setter Property="TextAlignment" Value="Center"/>
+<!--							<Setter Property="Opacity" Value="0.6"/>-->
+					</Style>
+				
+				</Grid.Resources>
+				
+				
+				<i:Interaction.Triggers>
+					<samples:DataEventTrigger EventName="LoginSucceeded">
+						
+						<im:ControlStoryboardAction  Storyboard="{StaticResource LoginSuccessAnim}"
+									ControlStoryboardOption="Play" />
+					</samples:DataEventTrigger>
+				
+					
+				</i:Interaction.Triggers>				
+				
+				
+<!--				Logged in functionality-->
+				<Grid Height="300"  Width="850" Visibility="{Binding Path=AdminButtonsVisible, Converter={StaticResource BoolToVisConv}}"
+				>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition />
+						<ColumnDefinition />
+						<ColumnDefinition />
+						<ColumnDefinition />
+						<ColumnDefinition />
+						<ColumnDefinition />
+					</Grid.ColumnDefinitions>
+				
+					<Grid.RowDefinitions>
+						<RowDefinition/>
+						<RowDefinition/>
+					</Grid.RowDefinitions>
+					
+					
+				
+					<controls:ImageButton Grid.Row="0" Grid.Column="0" ImageSource="\Images\Icons\search.png"
+						Command="{Binding SearchShortcutCommand}" >
+						<TextBlock Text="Search" />
+					</controls:ImageButton>
+					
+					<controls:ImageButton Grid.Row="1" Grid.Column="1" ImageSource="\Images\Icons\edit.png"
+						Command="{Binding ManipulateRecordsShortcutCommand}"   >
+						<TextBlock Text="Browse and Edit Records" />
+					</controls:ImageButton>
+					
+					<controls:ImageButton Grid.Row="0" Grid.Column="2" ImageSource="\Images\Icons\trans.png"
+						Command="{Binding TransactionsShortcutCommand}">
+						<TextBlock Text="Transactions"/>
+					</controls:ImageButton>
+					
+					<controls:ImageButton Grid.Row="1" Grid.Column="3" ImageSource="\Images\Icons\settings.png">
+						<TextBlock Text="Settings"/>
+					</controls:ImageButton>
+					
+					<controls:ImageButton Grid.Row="0" Grid.Column="4" ImageSource="\Images\Icons\logout.png"
+						Command="{Binding LogoutInHomeScreenCommand}">
+						<TextBlock Text="Logout"/>
+					</controls:ImageButton>
+					
+					<controls:ImageButton Grid.Row="1" Grid.Column="5" ImageSource="\Images\Icons\exit.png"
+						Command="{Binding ExitAppShortcutCommand}">
+						<TextBlock Text="Exit Application"/>
+					</controls:ImageButton>
+				</Grid>
+			
+<!--				Logged out view-->
+				<Grid Width="520" Visibility="{Binding Path=LoginBoxVisible, Converter={StaticResource BoolToVisConv}}"
+					VerticalAlignment="Center">
+					
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition/>
+						<ColumnDefinition/>
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="200"/>
+						<RowDefinition Height="100"/>
+					</Grid.RowDefinitions>
+					
+<!--					Login box-->
+					<aero:SystemDropShadowChrome x:Name="LoginBox" CornerRadius="20" Width="500" Height="150"
+						Grid.Row="0" Grid.ColumnSpan="2">
+						
+	<!--					Style needed to make the trigger work. The trigger is needed
+						to ensure that the login box can't be used while invisible, nor
+						should it obstruct clicks on the underlying buttons that share the grid cell-->
+						<aero:SystemDropShadowChrome.Style>
+							<Style>
+								<Style.Triggers>
+									<Trigger Property="UIElement.Opacity" Value="0">
+										<Setter Property="UIElement.Visibility" Value="Collapsed"/>
+									</Trigger>
+								</Style.Triggers>
+						</Style>
+						</aero:SystemDropShadowChrome.Style>
+						
+						
+						<Border CornerRadius="15" BorderThickness="5" Background="#FF353537" Opacity="0.7">
+							<Grid  Width="400" Height="88" >
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="300"/>
+									<ColumnDefinition/>
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition/>
+									<RowDefinition/>
+								</Grid.RowDefinitions>
+							
+								<Grid.Resources>
+									
+								</Grid.Resources>
+								
+								
+								
+														
+								<TextBox Grid.Row="0" Grid.Column="0" Margin="3"
+								         Template="{StaticResource LeftSkewedTextBoxTemplate}"
+										 Background="{StaticResource DarkTextBoxBrush}"
+										 BorderBrush="#FF706C6C"
+										 FontSize="15"
+										 FontWeight="Bold"
+										 Foreground="#FFC5C1C1"
+								  		 CaretBrush="White"
+										 Text="{Binding UserName}">
+									
+									<TextBox.RenderTransform>
+										<TranslateTransform x:Name="UNameBoxTranslate"/>
+									</TextBox.RenderTransform>
+								</TextBox>
+								
+								<PasswordBox Grid.Row="1" Grid.Column="0" Margin="3"
+										Template="{StaticResource RightSkewedTextBoxTemplate}" 
+										Background="{StaticResource DarkTextBoxBrush}"
+										 BorderBrush="#FF706C6C"
+										 FontSize="15"
+										 FontWeight="Bold"
+										 Foreground="#FFC5C1C1"
+								  		 CaretBrush="White" 
+										 general:PasswordBoxAssistant.BindPassword="true"  
+								         general:PasswordBoxAssistant.BoundPassword="{Binding Path=Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										 >
+									
+									<PasswordBox.RenderTransform>
+										<TransformGroup>
+											<TranslateTransform X="-10"/>
+											<TranslateTransform x:Name="PassBoxTranslate"/>
+										</TransformGroup>
+									</PasswordBox.RenderTransform>
+								</PasswordBox>
+							
+								<Button Grid.Column="1" Grid.RowSpan="2" Width="75" Height="35"
+										Content="Login" HorizontalAlignment="Left"
+										Command="{Binding LoginCommand}">
+									
+									<Button.RenderTransform>
+										<TranslateTransform x:Name="LoginBtnTranslate"/>
+									</Button.RenderTransform>
+								</Button>
+						
+							</Grid>
+						</Border>
+					</aero:SystemDropShadowChrome>
+				
+				
+<!--					Use-by-all functionality-->
+					<controls:ImageButton Grid.Row="1" Grid.Column="0" ImageSource="\Images\Icons\search.png"
+						Command="{Binding SearchShortcutCommand}" >
+						<TextBlock Text="Search" />
+					</controls:ImageButton>
+					
+					<controls:ImageButton Grid.Row="1" Grid.Column="1" ImageSource="\Images\Icons\exit.png"
+						Command="{Binding ExitAppShortcutCommand}">
+						<TextBlock Text="Exit Application"/>
+					</controls:ImageButton>
+				</Grid>
+			</Grid>
+		</Border>
+
+	</DockPanel>
+			
+
+</UserControl>

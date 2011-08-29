@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+# SharpDevelop 4.1.0.7427-alpha
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProtoLibEF", "ProtoLibEF\ProtoLibEF.csproj", "{3B37A8D6-71E8-46BD-96AA-DD0469EA919B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProj", "TestProj\TestProj.csproj", "{FE2465F6-6335-41D3-B207-6623E03A7EA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProtoUI", "PtotoUI\ProtoUI.csproj", "{66999EF5-490C-4D05-ADF8-5FC3F1D3861F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProtoBLL", "ProtoBLL\ProtoBLL.csproj", "{BEB6B992-5908-42D7-833C-F96C5169F36D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3B37A8D6-71E8-46BD-96AA-DD0469EA919B}.Debug|x86.Build.0 = Debug|x86
+		{3B37A8D6-71E8-46BD-96AA-DD0469EA919B}.Debug|x86.ActiveCfg = Debug|x86
+		{3B37A8D6-71E8-46BD-96AA-DD0469EA919B}.Release|x86.Build.0 = Release|x86
+		{3B37A8D6-71E8-46BD-96AA-DD0469EA919B}.Release|x86.ActiveCfg = Release|x86
+		{FE2465F6-6335-41D3-B207-6623E03A7EA2}.Debug|x86.Build.0 = Debug|x86
+		{FE2465F6-6335-41D3-B207-6623E03A7EA2}.Debug|x86.ActiveCfg = Debug|x86
+		{FE2465F6-6335-41D3-B207-6623E03A7EA2}.Release|x86.Build.0 = Release|x86
+		{FE2465F6-6335-41D3-B207-6623E03A7EA2}.Release|x86.ActiveCfg = Release|x86
+		{66999EF5-490C-4D05-ADF8-5FC3F1D3861F}.Debug|x86.Build.0 = Debug|x86
+		{66999EF5-490C-4D05-ADF8-5FC3F1D3861F}.Debug|x86.ActiveCfg = Debug|x86
+		{66999EF5-490C-4D05-ADF8-5FC3F1D3861F}.Release|x86.Build.0 = Release|x86
+		{66999EF5-490C-4D05-ADF8-5FC3F1D3861F}.Release|x86.ActiveCfg = Release|x86
+		{BEB6B992-5908-42D7-833C-F96C5169F36D}.Debug|x86.Build.0 = Debug|x86
+		{BEB6B992-5908-42D7-833C-F96C5169F36D}.Debug|x86.ActiveCfg = Debug|x86
+		{BEB6B992-5908-42D7-833C-F96C5169F36D}.Release|x86.Build.0 = Release|x86
+		{BEB6B992-5908-42D7-833C-F96C5169F36D}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+EndGlobal
